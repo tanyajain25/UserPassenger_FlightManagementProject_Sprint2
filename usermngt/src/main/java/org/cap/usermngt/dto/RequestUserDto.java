@@ -10,8 +10,8 @@ public class RequestUserDto {
 	private String userType;
 	private String userName;
 	private String userPassword;
-	//@Min(value = 999999999L)
-	//@Max(value = 9999999999L)
+	@Min(value = 999999999L)
+	@Max(value = 9999999999L)
 	private BigInteger userPhone;
 	private String userEmail;
 
