@@ -23,9 +23,5 @@ public class PassengerManagementApplication {
 		SpringApplication.run(PassengerManagementApplication.class, args);
 	}
 
-	@Bean
-	public RestTemplate restTemplate(){
-		return new RestTemplate();
-	}
 
 }

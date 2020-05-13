@@ -21,8 +21,6 @@ import javax.validation.Valid;
 @Validated
 public class UserRestController {
 
-	private static final Logger Log = LoggerFactory.getLogger(UserRestController.class);
-
 	@Autowired
 	private UserService service;
 
@@ -81,7 +79,6 @@ public class UserRestController {
 
 	@ExceptionHandler(UserNotFoundException.class)
 	public ResponseEntity<String> handleUserNotFound(UserNotFoundException exception) {
-		Log.error("User Not Found Exception", exception);
 		String message = exception.getMessage();
 		ResponseEntity<String> response = new ResponseEntity<>(message, HttpStatus.NOT_FOUND);
 		return response;

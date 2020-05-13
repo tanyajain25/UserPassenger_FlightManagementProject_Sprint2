@@ -23,9 +23,4 @@ public class UserManagementApplication {
 		SpringApplication.run(UserManagementApplication.class, args);
 	}
 
-	@Bean
-	public RestTemplate restTemplate(){
-		return new RestTemplate();
-	}
-
 }

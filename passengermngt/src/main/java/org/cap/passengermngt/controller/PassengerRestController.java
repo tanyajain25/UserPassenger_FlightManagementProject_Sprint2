@@ -4,8 +4,6 @@ import org.cap.passengermngt.dto.RequestPassengerDto;
 import org.cap.passengermngt.entities.Passenger;
 import org.cap.passengermngt.exceptions.PassengerNotFoundException;
 import org.cap.passengermngt.service.PassengerService;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,8 +18,7 @@ import javax.validation.Valid;
 @RequestMapping("/passengers")
 @Validated
 public class PassengerRestController {
-	// --
-	private static final Logger Log = LoggerFactory.getLogger(PassengerRestController.class);
+	
 
 	@Autowired
 	private PassengerService service;
@@ -73,7 +70,6 @@ public class PassengerRestController {
 	/* exception handler used for handling PassengerNotFoundException */
 	@ExceptionHandler(PassengerNotFoundException.class)
 	public ResponseEntity<String> handleUserNotFound(PassengerNotFoundException exception) {
-		Log.error("Passenger Not Found Exception", exception);
 		String message = exception.getMessage();
 		ResponseEntity<String> response = new ResponseEntity<>(message, HttpStatus.NOT_FOUND);
 		return response;
