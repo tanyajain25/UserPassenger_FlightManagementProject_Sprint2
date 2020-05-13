@@ -78,10 +78,10 @@ public class Passenger {
 	public boolean equals(Object object) {
 		if (this == object)
 			return true;
-		if (object == null || (object instanceof Passenger))
+		if (object == null || !(object instanceof Passenger))
 			return false;
 		Passenger passenger = (Passenger) object;
-		return this.passengerUIN.equals(passenger.getPassengerUIN());
+		return this.passengerUIN.equals(passenger.passengerUIN);
 	}
 
 	@Override

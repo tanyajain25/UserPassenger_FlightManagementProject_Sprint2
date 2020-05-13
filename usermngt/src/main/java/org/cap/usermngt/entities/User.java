@@ -77,10 +77,10 @@ public class User {
 	public boolean equals(Object object) {
 		if (this == object)
 			return true;
-		if (object == null || (object instanceof User))
+		if (object == null || !(object instanceof User))
 			return false;
 		User user = (User) object;
-		return this.userId.equals(user.getUserId());
+		return this.userId.equals(user.userId);
 	}
 
 	@Override
