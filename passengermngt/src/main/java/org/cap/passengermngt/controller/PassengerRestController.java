@@ -54,18 +54,26 @@ public class PassengerRestController {
 		return reponse;
 	}
 
-	/* delete passengers */
-	@DeleteMapping("/delete/many")
-	public ResponseEntity<String> deletePassengers(@RequestBody RequestPassengerDto[] requestPassengersData) {
-		String message = "";
-		for (RequestPassengerDto passengerData : requestPassengersData) {
-			Passenger passenger = convertFromDtoToPassenger(passengerData);
-			BigInteger passengerUin = passenger.getPassengerUIN();
-			message = message + " " + service.deletePassenger(passengerUin);
-		}
-		ResponseEntity<String> reponse = new ResponseEntity<String>(message, HttpStatus.OK);
+//	/* delete passengers */
+//	@DeleteMapping("/delete/many")
+//	public ResponseEntity<String> deletePassengers(@RequestBody RequestPassengerDto[] requestPassengersData) {
+//		String message = "";
+//		for (RequestPassengerDto passengerData : requestPassengersData) {
+//			Passenger passenger = convertFromDtoToPassenger(passengerData);
+//			BigInteger passengerUin = passenger.getPassengerUIN();
+//			message = message + " " + service.deletePassenger(passengerUin);
+//		}
+//		ResponseEntity<String> reponse = new ResponseEntity<String>(message, HttpStatus.OK);
+//		return reponse;
+//	}
+	
+	@DeleteMapping("/deletebyuin/{uin}")
+	public ResponseEntity<Boolean> deletePassengerByUin(@PathVariable("uin") BigInteger uin) {
+		Boolean result = service.deletePassenger(uin);
+		ResponseEntity<Boolean> reponse = new ResponseEntity<Boolean>(result, HttpStatus.OK);
 		return reponse;
 	}
+	
 
 	/* exception handler used for handling PassengerNotFoundException */
 	@ExceptionHandler(PassengerNotFoundException.class)

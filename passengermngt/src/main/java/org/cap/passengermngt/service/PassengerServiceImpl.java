@@ -45,14 +45,13 @@ public class PassengerServiceImpl implements PassengerService {
 
 	/* delete passenger using UIN */
 	@Override
-	public String deletePassenger(BigInteger uin) {
+	public Boolean deletePassenger(BigInteger uin) {
 		Optional<Passenger> optional = passengerDao.findById(uin);
 		if (optional.isPresent()) {
 			passengerDao.deleteById(uin);
-			return "Passenger is Deleted for UIN=" + uin;
+			return true;
 		}
-		String message = "Passengers not found for UIN=" + uin;
-		return message;
+		throw new PassengerNotFoundException("Passengers not found for UIN=" + uin);
 
 	}
 

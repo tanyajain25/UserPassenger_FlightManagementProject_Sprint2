@@ -12,7 +12,7 @@ public interface UserService {
 
 	List<User> viewAllUsers();
 
-	void deleteUser(BigInteger id);
+	Boolean deleteUser(BigInteger id);
 
 	User updateUser(User user);
 }

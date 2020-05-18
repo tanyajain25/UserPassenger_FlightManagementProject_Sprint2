@@ -20,7 +20,7 @@ public class Passenger {
 	private String passengerName;
 	private Integer passengerAge;
 	private double passegerLuggage;
-	private String Gender;
+	private String gender;
 
 	public Passenger() {
 		super();
@@ -67,11 +67,11 @@ public class Passenger {
 	}
 
 	public String getGender() {
-		return Gender;
+		return gender;
 	}
 
 	public void setGender(String gender) {
-		Gender = gender;
+		this.gender = gender;
 	}
 
 	@Override

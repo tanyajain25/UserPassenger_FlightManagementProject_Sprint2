@@ -53,10 +53,11 @@ public class UserServiceImpl implements UserService {
 
 	/* delete user */
 	@Override
-	public void deleteUser(BigInteger userId) {
+	public Boolean deleteUser(BigInteger userId) {
 		Optional<User> optional = userDao.findById(userId);
 		if (optional.isPresent()) {
 			userDao.deleteById(userId);
+			return true;
 		}
 		throw new UserNotFoundException("User not found for id=" + userId);
 

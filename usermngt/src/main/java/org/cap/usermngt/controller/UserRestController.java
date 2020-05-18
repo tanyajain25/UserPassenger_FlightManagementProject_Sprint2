@@ -62,10 +62,9 @@ public class UserRestController {
 
 	/* delete user by userId */
 	@DeleteMapping("/deletebyuserid/{userId}")
-	public ResponseEntity<String> deleteUser(@PathVariable("userId") BigInteger userId) {
-		service.deleteUser(userId);
-		String message = "Deleted";
-		ResponseEntity<String> reponse = new ResponseEntity<String>(message, HttpStatus.OK);
+	public ResponseEntity<Boolean> deleteUser(@PathVariable("userId") BigInteger userId) {
+		boolean result=service.deleteUser(userId);
+		ResponseEntity<Boolean> reponse = new ResponseEntity<Boolean>(result, HttpStatus.OK);
 		return reponse;
 	}
 

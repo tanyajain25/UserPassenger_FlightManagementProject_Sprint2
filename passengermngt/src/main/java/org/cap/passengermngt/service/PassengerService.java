@@ -10,6 +10,6 @@ public interface PassengerService {
 
 	Passenger findPassengerByUin(BigInteger uin);
 
-	String deletePassenger(BigInteger uin);
+	Boolean deletePassenger(BigInteger uin);
 
 }

@@ -4,7 +4,6 @@ import java.math.BigInteger;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 
-
 public class RequestPassengerDto {
 
 	@Min(value = 99999999999L)
@@ -14,7 +13,7 @@ public class RequestPassengerDto {
 	private String passengerName;
 	private Integer passengerAge;
 	private double passegerLuggage;
-	private String Gender;
+	private String gender;
 
 	public BigInteger getPassengerUIN() {
 		return passengerUIN;
@@ -57,11 +56,11 @@ public class RequestPassengerDto {
 	}
 
 	public String getGender() {
-		return Gender;
+		return gender;
 	}
 
 	public void setGender(String gender) {
-		Gender = gender;
+		this.gender = gender;
 	}
 
 }
